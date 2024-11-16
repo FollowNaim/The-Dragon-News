@@ -7,7 +7,7 @@ function MiddleSide() {
   return (
     <div>
       <div>
-        <h4>Dragon News Home</h4>
+        <h4 className="font-medium text-lg">Dragon News Home</h4>
         <div className="mt-6 flex flex-col gap-6">
           {data.map((news) => (
             <SingleNews key={news._id} news={news} />

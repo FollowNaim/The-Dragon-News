@@ -32,7 +32,7 @@ function NewsDetails() {
         </CardContent>
         <CardFooter>
           <Link to={`/category/${category_id}`}>
-            <Button className="flex items-center gap-2 bg-destructive">
+            <Button className="flex items-center gap-2" variant="outline">
               <FaArrowLeft /> All news in this category
             </Button>
           </Link>

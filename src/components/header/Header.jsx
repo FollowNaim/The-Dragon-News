@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
-function Nav() {
+function Header() {
   const [breakingNews, setBreakingNews] = useState([]);
   useEffect(() => {
     fetch("https://openapi.programming-hero.com/api/news/category/01")
@@ -25,23 +25,25 @@ function Nav() {
         <p>{moment().format("dddd, MMMM Do YYYY")}</p>
       </div>
       <div>
-        <div className="bg-muted p-2 flex items-center mt-6">
-          <Button className="bg-destructive rounded-none " size="lg">
+        <div className="bg-muted p-2 grid grid-cols-12 md:flex  items-center mt-6 w-full justify-center">
+          <Button className="bg-blue-800 rounded-none col-span-3" size="lg">
             Latest
           </Button>
-          <Marquee pauseOnHover={true}>
-            <div className="space-x-10">
-              {breakingNews.map((bn) => (
-                <Link to={`/news/${bn._id}`} key={bn._id}>
-                  <span>{bn.title}</span>
-                </Link>
-              ))}
-            </div>
-          </Marquee>
+          <div className="col-span-9">
+            <Marquee pauseOnHover={true}>
+              <div className="space-x-10">
+                {breakingNews.map((bn) => (
+                  <Link to={`/news/${bn._id}`} key={bn._id}>
+                    <span>{bn.title}</span>
+                  </Link>
+                ))}
+              </div>
+            </Marquee>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default Nav;
+export default Header;

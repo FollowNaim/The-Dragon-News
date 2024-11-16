@@ -2,15 +2,21 @@ import ads from "@/assets/bg.png";
 import classp from "@/assets/class.png";
 import playground from "@/assets/playground.png";
 import swimming from "@/assets/swimming.png";
+import { AuthContext } from "@/provider/AuthProvider";
+import { useContext } from "react";
 import { FaFacebook, FaGithub, FaTwitter } from "react-icons/fa6";
 import SocialLogin from "../social-login/SocialLogin";
 
 function RightSide() {
+  const { user, handleGoogleLogin, handleGithubLogin } =
+    useContext(AuthContext);
   return (
     <div>
-      <SocialLogin />
+      {!user && <SocialLogin />}
       <div>
-        <h4 className="text-lg font-medium mt-8">Find Us on</h4>
+        <h4 className={`text-lg font-medium ${user ? "mt-0" : "mt-8"}`}>
+          Find Us on
+        </h4>
         <div className="border border-border rounded-t-lg rounded-b-lg mt-6">
           <span className="flex items-center gap-3 border border-b px-4 py-2">
             <FaFacebook /> Facebook

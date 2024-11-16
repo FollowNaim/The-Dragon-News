@@ -8,7 +8,6 @@ function LeftSide() {
       .then((res) => res.json())
       .then((data) => setCategories(data.data.news_category));
   }, []);
-  console.log(categories);
   return (
     <div className="p-4">
       <div>

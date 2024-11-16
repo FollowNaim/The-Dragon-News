@@ -16,16 +16,16 @@ function MainLayout() {
           <Nav />
         </header>
         <main>
-          <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-3 sticky top-4 h-fit">
+          <div className="grid md:grid-cols-12 gap-4">
+            <div className="hidden md:block col-span-3 md:sticky top-4 h-fit">
               <LeftSide />
             </div>
             <Suspense fallback={<h1>Loading...</h1>}>
-              <div className="col-span-6">
+              <div className="order-first md:order-none col-span-12 md:col-span-6">
                 {state.state === "loading" ? <Spinner /> : <Outlet />}
               </div>
             </Suspense>
-            <div className="col-span-3 sticky top-4 h-fit">
+            <div className="col-span-12 md:col-span-3 md:sticky top-4 h-fit">
               <RightSide />
             </div>
           </div>
